@@ -112,6 +112,97 @@ analyze the data.
 
 <br>
 
+# **What is Exploratory Data Analysis?**
+
+<br>
+It is simply the analyzing of data sets to summarize characteristics & patterns. 
+These include Uni- Bi- & Multi- Variate Analysis. Often discovering underlying
+relationships that conventional models overlook.
+<br>
+
+.
+<br>
+## [EDA & Feature Engineering Focused](https://www.kaggle.com/derrickchua29/feature-engineering-eda-focused/notebook)
+<br>
+
+![ScreenShot](/Pictures/EDA_article_1.png)
+
+After extracting Annual Insurance Data Returns in the Part 1 series, we proceed to
+analyze the data.
+
+
+<br><ins>EDA Summary</ins>
+
+<br>1. Those who have had past experience of financial distress (target variable):
+<br>>Made lesser loans or exceed deadlines
+<br>>Tend to have lesser dependents & debt ratio & net worth
+<br>>As expected are of lower-tier income, But lower debt ratio
+<br>
+
+<br>2. Ignoring mortality and time value of money (i.e.Annuities)
+<br>>Debt ratio & Net worth shows gaussian distribution against age
+<br>
+
+<br>3. Those who had acts of debt delinquency (Made loans or exceed deadlines)
+<br>>Tend to be from the higher-tier income or Retired
+<br>
+
+<br>4. Others
+<br>>The higher the income, the higher the debt ratio
+<br>>The higher the income, the lower the dependents
+
+
+<br>
+<a href="https://www.kaggle.com/derrickchua29/feature-engineering-eda-focused/notebook"><strong>Click To View</strong></a>
+<br>
+
+
+
+# **What is General Linear Modelling?**
+
+<br>
+It is simply applying the fundamental straight line concept of a Y = mx + C. 
+n other words, the idea that variable relationships are 1-dimensional (positive
+or negative).
+<br>
+
+.
+<br>
+## [Ensemble Models Comparison Techniques](https://www.kaggle.com/derrickchua29/ensemble-models-comparison-techniques)
+<br>
+
+![ScreenShot](/Pictures/GLM_article_1.png)
+
+After extracting Annual Insurance Data Returns in the Part 1 series, we proceed to
+analyze the data.
+
+<br>A Python Kernel aimed at:
+<ol>1. Get a better understanding of the simplified predictive modelling framework</ol>
+<ol>2. Grasp the logic behind different coding methods & concise techniques used</ol>
+<ol>3. Comparisons between different models</ol>
+<br>
+<ol><ins>Coding Techniques :</ins></ol>
+<ol>A.List comprehensions</ol>
+<ol>B.Samples to reduce computational cost</ol>
+<ol>C.Concise 'def' functions that can be used repetitively</ol>
+<ol>D.Pivoting using groupby</ol>
+<ol>E.When & How to convert and reshape dictionary’s into lists or dataframes</ol>
+<ol>F.Quickly split dataframe columns</ol>
+<ol>H.Loop Sub-plots</ol>
+<ol>I.Quick Lambda formulae functions</ol>
+<ol>J.Quick looping print or DataFrame conversion of summative scores</ol>
+<ol>K.Order plot components</ol>
+<ol>L.Create & Plot Bulk Ensemble comparative results</ol>
+
+
+<br>
+<a href="https://www.kaggle.com/derrickchua29/ensemble-models-comparison-techniques"><strong>Click To View</strong></a>
+<br>
+
+
+
+<br>
+
 
 
 
