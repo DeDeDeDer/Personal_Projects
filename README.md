@@ -7,6 +7,9 @@ Project's are mainly focus on Data Science, Insurance Pricing & Reserving fields
 <br>
 
 
+> # **Insurance (Pricing) & Data Science**
+
+
 <br>
 
 # **What is Predictive Modelling?**
@@ -127,9 +130,6 @@ relationships that conventional models overlook.
 
 ![ScreenShot](/Pictures/EDA_article_1.png)
 
-After extracting Annual Insurance Data Returns in the Part 1 series, we proceed to
-analyze the data.
-
 
 <br><ins>EDA Summary</ins>
 
@@ -173,8 +173,6 @@ or negative).
 
 ![ScreenShot](/Pictures/GLM_article_1.png)
 
-After extracting Annual Insurance Data Returns in the Part 1 series, we proceed to
-analyze the data.
 
 <br>A Python Kernel aimed at:
 <ol>1. Get a better understanding of the simplified predictive modelling framework</ol>
