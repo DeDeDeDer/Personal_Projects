@@ -76,7 +76,7 @@ converting 1,000c PDF Tables into CSV to compile data.
 <ol>1. Collate online source code URLs & sub-page URLs</ol>
 <ol>2. Download online data via URLs</ol>
 <ol>3. Convert & Neaten PDF Table into CSV</ol>
-<ol>4. Compile all CSV Tables
+<ol>4. Compile all CSV Tables</ol>
 
 <br>
 <a href="https://medium.com/@DRicky.Ch29/web-scraping-pdf-tables-data-cleaning-part-1-cb6d8d47a6de"><strong>Click To View</strong></a>
@@ -101,7 +101,7 @@ analyze the data.
 <ol><ins>Trends</ins></ol>
 <ol>2. Growing reinsurance ceded abroad beyond the ASEAN region</ol>
 <ol>3. Declining averages for Earned Premiums & Claims Incurred (with falling inflation rates)</ol>
-<ol>4. Average ROC, Expense & Loss Ratios
+<ol>4. Average ROC, Expense & Loss Ratios</ol>
 
 
 <br>
