@@ -1,6 +1,6 @@
 # Personal_Projects
 This GitHub holds all my personal project's that I have worked on as a past time. 
-Project's are mainly focus on Data Science, Insurance Pricing & Reserving fields.
+Project's are mainly focused on Data Science, Insurance Pricing & Reserving fields.
 <br>A mapping of these are laid out below.
 ![ScreenShot](/Pictures/MapBackground_4.png)
 <br>
@@ -37,7 +37,7 @@ An article publication aimed at explaining concepts to:
 <br>The article follows the generalized framework of:
 <br>
 <ol><ins>Data preparation</ins></ol>
-<ol>- Preliminary data analysis, executing 4-Tier's of data cleaning.</ol>
+<ol>- Preliminary data analysis, executing 4-Tier's of data cleaning. (Correct, Complete, Create, Convert)</ol>
 
 <ol><ins>Exploratory Data Analysis</ins></ol>
 <ol>- Uni- Bi- & Multi- Analysis</ol>
@@ -67,7 +67,9 @@ to spot Trends & Patterns.
 
 .
 <br>
-## [Python Web Scraping PDF & Data Cleaning (Part 1)](https://medium.com/@DRicky.Ch29/web-scraping-pdf-tables-data-cleaning-part-1-cb6d8d47a6de)
+## Python Web Scraping PDF & Data Cleaning (Part 1) 
+[Article](https://medium.com/@DRicky.Ch29/web-scraping-pdf-tables-data-cleaning-part-1-cb6d8d47a6de)
+[Code](https://medium.com/@DRicky.Ch29/web-scraping-pdf-tables-data-cleaning-part-1-cb6d8d47a6de)
 <br>
 
 ![ScreenShot](/Pictures/WebScrapPart1.png)
@@ -162,12 +164,12 @@ relationships that conventional models overlook.
 
 <br>
 It is simply applying the fundamental straight line concept of a Y = mx + C. 
-n other words, the idea that variable relationships are 1-dimensional (positive
+In other words, the idea that variable relationships are 1-dimensional (positive
 or negative).
 <br>
 
-.
-<br>
+
+.<br>
 ## [Ensemble Models Comparison Techniques](https://www.kaggle.com/derrickchua29/ensemble-models-comparison-techniques)
 <br>
 
@@ -197,6 +199,44 @@ or negative).
 <a href="https://www.kaggle.com/derrickchua29/ensemble-models-comparison-techniques"><strong>Click To View</strong></a>
 <br>
 
+<br>
+<br>
+<br>
+
+
+> # **Insurance (Reserving)e**
+
+
+<br>
+
+# **Claim Simulations**
+
+<br>
+In short, this projects contains a Python Kernel to automate the probabilistic  
+claims simulation process for actuarial reserving calculations.
+<br>
+
+.
+<br>
+## Claims Simulation 
+[Article](https://medium.com/@DRicky.Ch29/inflation-adjusted-chain-ladder-iacl-with-only-python-pandas-module-512914d9a1d)
+[Code](https://medium.com/@DRicky.Ch29/web-scraping-pdf-tables-data-cleaning-part-1-cb6d8d47a6de)
+<br>
+
+![ScreenShot](/Pictures/ClaimsSimu_article_1.png)
+
+<br>Present: Simulation supports Claim Numbers (Poisson) & Amounts (Gaussian).
+<br>W-I-P: Claim Numbers (Negative Binomial) & Amounts (Lognormal).
+
+<br>Contents:
+<ol>1. </ol>
+<ol>2. </ol>
+<ol>3. </ol>
+<ol>4. </ol>
+
+<br>
+<a href="https://medium.com/@DRicky.Ch29/web-scraping-pdf-tables-data-cleaning-part-1-cb6d8d47a6de"><strong>Click To View</strong></a>
+<br>
 
 
 <br>
