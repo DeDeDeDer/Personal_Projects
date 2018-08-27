@@ -238,7 +238,7 @@ or
 <ol>1. Development-Year lags</ol>
 <ol>2. Incremental & Cumulative claim amounts</ol>
 <ol>3. Uplift past inflation for incremental amounts & Derive cumulative</ol>
-<ol>4. Individual Loss Development Factors (LDFs)/ol>
+<ol>4. Individual Loss Development Factors (LDFs)</ol>
 <ol>5. Raw preliminary view of triangle</ol>
 <ol>6. Establish predicted lag years data frame</ol>
 <ol>7. Impute latest cumulative amounts</ol>
@@ -253,6 +253,10 @@ or
 <a href="https://medium.com/@DRicky.Ch29/web-scraping-pdf-tables-data-cleaning-part-1-cb6d8d47a6de"><strong>Click To View</strong></a>
 <br>
 
+
+<br>
+<br>
+<br>
 
 > # **Microsoft Package**
 
