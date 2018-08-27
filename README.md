@@ -277,7 +277,7 @@ or
 [Excel VBA Code](https://www.dropbox.com/s/b4cgvhjui2mj0qq/Bulk%20MailMerge%20v2.0.xlsm?dl=0)
 <br>
 
-![ScreenShot](/Pictures/WordExcelLogo.png)
+![ScreenShot](/Pictures/WordExcelLogo_1.png)
 
 <br>
 
@@ -301,7 +301,7 @@ or
 [Excel VBA Code](https://www.dropbox.com/s/o50up79cttwyfa3/Bulk%20Emailing%20v2.0.xlsm?dl=0)
 <br>
 
-![ScreenShot](/Pictures/OutlookExcelLogo.png)
+![ScreenShot](/Pictures/OutlookExcelLogo_1.png)
 
 <br>
 
