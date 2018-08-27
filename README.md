@@ -70,7 +70,7 @@ to spot Trends & Patterns.
 ## Python Web Scraping PDF & Data Cleaning (Part 1) 
 [Article](https://medium.com/@DRicky.Ch29/web-scraping-pdf-tables-data-cleaning-part-1-cb6d8d47a6de)
 or
-[Code](https://medium.com/@DRicky.Ch29/web-scraping-pdf-tables-data-cleaning-part-1-cb6d8d47a6de)
+[Python Code](https://medium.com/@DRicky.Ch29/web-scraping-pdf-tables-data-cleaning-part-1-cb6d8d47a6de)
 <br>
 
 ![ScreenShot](/Pictures/WebScrapPart1.png)
@@ -223,7 +223,7 @@ Reserving Method Used: Inflation Adjusted Chain Ladder
 ## Claims Simulation 
 [Article](https://medium.com/@DRicky.Ch29/inflation-adjusted-chain-ladder-iacl-with-only-python-pandas-module-512914d9a1d)
 or
-[Code](https://medium.com/@DRicky.Ch29/web-scraping-pdf-tables-data-cleaning-part-1-cb6d8d47a6de)
+[Python Code](https://github.com/DeDeDeDer/Personal_Projects/blob/master/Claims%20Simulation%20(Insurance%20Reserving)/compute_claims.py)
 <br>
 
 ![ScreenShot](/Pictures/ClaimsSimu_article_1.png)
