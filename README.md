@@ -70,7 +70,7 @@ to spot Trends & Patterns.
 ## Python Web Scraping PDF & Data Cleaning (Part 1) 
 [Article](https://medium.com/@DRicky.Ch29/web-scraping-pdf-tables-data-cleaning-part-1-cb6d8d47a6de)
 or
-[Python Code](https://medium.com/@DRicky.Ch29/web-scraping-pdf-tables-data-cleaning-part-1-cb6d8d47a6de)
+[Python Code](https://github.com/DeDeDeDer/Personal_Projects/blob/master/Web%20Scraping%20(Data%20Science%20%26%20Insurance%20Pricing)/Web_Scrap_Insurance_Returns.py)
 <br>
 
 ![ScreenShot](/Pictures/WebScrapPart1.png)
@@ -234,17 +234,91 @@ or
 <br>2. Support Bornhuetter-Ferguson Method (BF).
 
 <br>Contents:
-<ol>1. </ol>
-<ol>2. </ol>
-<ol>3. </ol>
-<ol>4. </ol>
+<ol>0. Assumptions</ol>
+<ol>1. Development-Year lags</ol>
+<ol>2. Incremental & Cumulative claim amounts</ol>
+<ol>3. Uplift past inflation for incremental amounts & Derive cumulative</ol>
+<ol>4. Individual Loss Development Factors (LDFs)/ol>
+<ol>5. Raw preliminary view of triangle</ol>
+<ol>6. Establish predicted lag years data frame</ol>
+<ol>7. Impute latest cumulative amounts</ol>
+<ol>8. Simple Mean & Volume Weighted LDFs & 5/3 Year Averages & Select</ol>
+<ol>9. Predict future cumulative amounts</ol>
+<ol>10. Calculate incremental amounts</ol>
+<ol>11. Project future inflation for incremental amounts</ol>
+<ol>12. Reserve summation</ol>
+
 
 <br>
 <a href="https://medium.com/@DRicky.Ch29/web-scraping-pdf-tables-data-cleaning-part-1-cb6d8d47a6de"><strong>Click To View</strong></a>
 <br>
 
 
+> # **Microsoft Package**
+
+
 <br>
+
+# **Microsoft Package**
+
+<br>
+Prior to learning Python coding language, I had to refine the basics. 
+Since Excel & VBA are broadly deemed essential skill-sets, I thought 
+I build some personal models. Ideas are inspired whilst at my work 
+placement tenure at a  consultancy company. The main objective was to 
+ease manual & repetitive tasking's.
+<br>
+
+.
+<br>
+## Word Documentations 
+[Spreadsheet](https://www.dropbox.com/s/b4cgvhjui2mj0qq/Bulk%20MailMerge%20v2.0.xlsm?dl=0)
+or
+[Excel VBA Code](https://www.dropbox.com/s/b4cgvhjui2mj0qq/Bulk%20MailMerge%20v2.0.xlsm?dl=0)
+<br>
+
+![ScreenShot](/Pictures/WordExcelLogo.png)
+
+<br>
+
+<br>A reproducible Excel VBA programme that automates bulk simultaneous word 
+document mail merges. Data entry checks (file exists etc.) & cleaning (excess 
+spaces, invalid file directory ...) are done by the coding as well. This code 
+does NOT use the standard mail merge function that operates ONLY on 1-single 
+document. Instead allows running on mass word documentations.
+
+<br>Inspiration:
+<br>Whilst assisting my previous employer to prepare clients for the European 
+General Data Protection Regulations (GDPR) privacy documentations, I created 
+this programme to streamline over 30hours of manual work.
+<br>
+
+.
+<br>
+## Outlook Communications 
+[Spreadsheet](https://www.dropbox.com/s/o50up79cttwyfa3/Bulk%20Emailing%20v2.0.xlsm?dl=0)
+or
+[Excel VBA Code](https://www.dropbox.com/s/o50up79cttwyfa3/Bulk%20Emailing%20v2.0.xlsm?dl=0)
+<br>
+
+![ScreenShot](/Pictures/OutlookExcelLogo.png)
+
+<br>
+
+<br>A reproducible Excel VBA programme that automates multiple simultaneous email 
+communications if recipients receive overlapping/same attachments or spreadsheet 
+tables.
+
+<br>Inspiration:
+<br>A responsibility of mine at a previous company involved weekly roll-forward 
+projection updates. I found this repetitive & build this model to automate the 
+job. It mitigated manual human input errors & eased the job handing over
+process.
+<br>
+
+
+<br>
+
 
 
 
