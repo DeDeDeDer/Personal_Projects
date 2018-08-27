@@ -69,6 +69,7 @@ to spot Trends & Patterns.
 <br>
 ## Python Web Scraping PDF & Data Cleaning (Part 1) 
 [Article](https://medium.com/@DRicky.Ch29/web-scraping-pdf-tables-data-cleaning-part-1-cb6d8d47a6de)
+or
 [Code](https://medium.com/@DRicky.Ch29/web-scraping-pdf-tables-data-cleaning-part-1-cb6d8d47a6de)
 <br>
 
@@ -204,7 +205,7 @@ or negative).
 <br>
 
 
-> # **Insurance (Reserving)e**
+> # **Insurance (Reserving)**
 
 
 <br>
@@ -213,20 +214,24 @@ or negative).
 
 <br>
 In short, this projects contains a Python Kernel to automate the probabilistic  
-claims simulation process for actuarial reserving calculations.
+claims simulation process for actuarial reserving calculations. 
 <br>
+Reserving Method Used: Inflation Adjusted Chain Ladder
 
 .
 <br>
 ## Claims Simulation 
 [Article](https://medium.com/@DRicky.Ch29/inflation-adjusted-chain-ladder-iacl-with-only-python-pandas-module-512914d9a1d)
+or
 [Code](https://medium.com/@DRicky.Ch29/web-scraping-pdf-tables-data-cleaning-part-1-cb6d8d47a6de)
 <br>
 
 ![ScreenShot](/Pictures/ClaimsSimu_article_1.png)
 
 <br>Present: Simulation supports Claim Numbers (Poisson) & Amounts (Gaussian).
-<br>W-I-P: Claim Numbers (Negative Binomial) & Amounts (Lognormal).
+<br>Ongoing: 
+<br>1. Claim Numbers (Negative Binomial) & Amounts (Lognormal).
+<br>2. Support Bornhuetter-Ferguson Method (BF).
 
 <br>Contents:
 <ol>1. </ol>
