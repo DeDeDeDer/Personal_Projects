@@ -177,7 +177,7 @@ or negative).
 ![ScreenShot](/Pictures/GLM_article_1.png)
 
 
-<br>A Python Kernel aimed at:
+<br>A Python Kernel aimed to:
 <ol>1. Get a better understanding of the simplified predictive modelling framework</ol>
 <ol>2. Grasp the logic behind different coding methods & concise techniques used</ol>
 <ol>3. Comparisons between different models</ol>
