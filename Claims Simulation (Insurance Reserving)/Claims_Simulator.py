@@ -176,20 +176,23 @@ class IACL:
         return tempo_df
 
     @staticmethod
-    def individual_loss_development_factors(data_frame, year_end_cap, start_year, lag_year, cum_amt):
+    def individual_loss_development_factors(data_frame, year_end_cap, start_year_col, lag_year_col, inflated_cum_amt_col):
         df = data_frame
         df['Inflated_LossDF'] = 1   # default ratio 1
-        for row in range(0, len(df['Insured_Year'])):
-            insured_year = df.loc[row, 'Insured_Year']
-            lag_yr = df.loc[row, 'Year_Only_Lag']
-            current_year = df.loc[row, 'Insured_Year'] + df.loc[row, 'Year_Only_Lag']
-            curr_cum_amt = df.loc[row, 'Inflated_cumsum']
-            if current_year > year_end_cap or len(df.loc[(df['Insured_Year'] == insured_year) & (
-                    df['Year_Only_Lag'] == (lag_yr + 1)), 'Inflated_cumsum']) == 0:
+        start_year_col = str(start_year_col)
+        lag_year_col = str(lag_year_col)
+        inflated_cum_amt_col = str(inflated_cum_amt_col)
+        for row in range(0, len(df[start_year_col])):
+            insured_year = df.loc[row, start_year_col]
+            lag_yr = df.loc[row, lag_year_col]
+            current_year = df.loc[row, start_year_col] + df.loc[row, lag_year_col]
+            curr_cum_amt = df.loc[row, inflated_cum_amt_col]
+            if current_year > year_end_cap or len(df.loc[(df[start_year_col] == insured_year) & (
+                    df[lag_year_col] == (lag_yr + 1)), inflated_cum_amt_col]) == 0:
                 next_cum_amt = 0
             else:
-                next_cum_amt = df.loc[(py_data['Insured_Year'] == insured_year) & (
-                        df['Year_Only_Lag'] == (lag_yr + 1)), 'Inflated_cumsum'].values[0]
+                next_cum_amt = df.loc[(py_data[start_year_col] == insured_year) & (
+                        df[lag_year_col] == (lag_yr + 1)), inflated_cum_amt_col].values[0]
             ldf = next_cum_amt / curr_cum_amt
             df.loc[row, 'Inflated_LossDF'] = ldf
         return df
@@ -313,59 +316,63 @@ class IACL:
         return df
 
     @staticmethod
-    def predict_claims():
+    def predict_claims(data_frame_pred, data_frame_check_ref, data_frame_ldf, pred_lag_year_col, lag_year_col, selected_ldf_col, inflated_cum_amt_col, start_year_col, year_end_cap, inflated_cum_amt_col_check):
+        df_pred = data_frame_pred
+        df_check = data_frame_check_ref
+        df_ldf = data_frame_ldf
+        pred_lag_year_col = str(pred_lag_year_col)
+        lag_year_col = str(lag_year_col)
+        start_year_col = str(start_year_col)
+        selected_ldf_col = str(selected_ldf_col)
+        inflated_cum_amt_col = str(inflated_cum_amt_col)
+        YearEndCap = year_end_cap
+        YearStartCap = min(df_check[start_year_col])
         # Inflated
         # Set Equal for easy reference
-        Predicted_df['Predicted_Inflated_cumsum'] = Predicted_df['Previous_Inflated_cumsum']
+        data_frame_pred['Predicted_Inflated_cumsum'] = data_frame_pred['Previous_Inflated_cumsum']
         lagyearlimit = (YearEndCap - YearStartCap) - 1
         x = 1  # Do nothing
-        for row in range(0, len(Predicted_df)):
-            PredLagYr = Predicted_df.loc[row, 'PredictedYear_Only_Lag']
-            BaseInsuredYr = Predicted_df.loc[row, 'InsuredYear']
-            MaxLagYr = py_data.loc[(py_data['Insured_Year'] == BaseInsuredYr), 'Year_Only_Lag'].max()
-            for r in range(0, len(LossDF_df)):
-                if (LossDF_df.loc[r, 'Year_Only_Lag'] == lagyearlimit):
+        for row in range(0, len(df_pred)):
+            PredLagYr = df_pred.loc[row, pred_lag_year_col]
+            BaseInsuredYr = df_pred.loc[row, start_year_col]
+            MaxLagYr = df_check.loc[(df_check[start_year_col] == BaseInsuredYr), lag_year_col].max()
+            for r in range(0, len(df_ldf)):
+                if (df_ldf.loc[r, lag_year_col] == lagyearlimit):
                     x = x  # To avoid NaN
-                elif (LossDF_df.loc[r, 'Year_Only_Lag'] == MaxLagYr):
+                elif (df_ldf.loc[r, lag_year_col] == MaxLagYr):
                     # LDF multiplication
-                    LDF = LossDF_df.loc[(LossDF_df['Year_Only_Lag'] >= MaxLagYr) & (
-                            LossDF_df['Year_Only_Lag'] <= (PredLagYr - 1)), 'Inflated_SelectLossDF'].prod()
-                    Predicted_df.loc[row, 'Predicted_Inflated_cumsum'] = Predicted_df.loc[
-                                                                             row, 'Predicted_Inflated_cumsum'] * LDF
+                    LDF = df_ldf.loc[(df_ldf[lag_year_col] >= MaxLagYr) & (df_ldf[lag_year_col] <= (PredLagYr - 1)), selected_ldf_col].prod()
+                    df_pred.loc[row, inflated_cum_amt_col] = df_pred.loc[row, inflated_cum_amt_col] * LDF
                 else:
                     x = x  # Do nothing
         """Data-type adjustments"""
         # Years
-        Predicted_df[['InsuredYear', 'PredictedYear_Only_Lag']] = Predicted_df[
-            ['InsuredYear', 'PredictedYear_Only_Lag']].astype(int)
+        df_pred[[start_year_col, pred_lag_year_col]] = df_pred[
+            [start_year_col, pred_lag_year_col]].astype(int)
         # Amounts
-        Predicted_df[['Predicted_cumsum', 'Previous_cumsum']] = Predicted_df[
-            ['Predicted_cumsum', 'Previous_cumsum']].astype(float)
-        Predicted_df[['Predicted_Inflated_cumsum', 'Previous_Inflated_cumsum']] = Predicted_df[
-            ['Predicted_Inflated_cumsum', 'Previous_Inflated_cumsum']].astype(float)
+        df_pred[['Predicted_Inflated_cumsum', inflated_cum_amt_col]] = df_pred[
+            ['Predicted_Inflated_cumsum', inflated_cum_amt_col]].astype(float)
         """Predict Incremental Amount"""
         # Inflated
-        for row in range(0, len(Predicted_df)):
-            InsurYr = Predicted_df.loc[row, 'InsuredYear']
-            LagYr = Predicted_df.loc[row, 'PredictedYear_Only_Lag']
-            CurrCum = Predicted_df.loc[row, 'Predicted_Inflated_cumsum']
+        for row in range(0, len(df_pred)):
+            InsurYr = df_pred.loc[row, start_year_col]
+            LagYr = df_pred.loc[row, pred_lag_year_col]
+            CurrCum = df_pred.loc[row, 'Predicted_Inflated_cumsum']
             # For which we can't look up in Predicted_df
-            if len(Predicted_df.loc[(Predicted_df['InsuredYear'] == InsurYr) & (
-                    Predicted_df['PredictedYear_Only_Lag'] == LagYr - 1), 'Predicted_Inflated_cumsum']) == 0:
-                PrevCum = py_data.loc[(py_data['Insured_Year'] == InsurYr) & (
-                        py_data['Year_Only_Lag'] == LagYr - 1), 'Inflated_cumsum'].values[0]
+            if len(df_pred.loc[(df_pred[start_year_col] == InsurYr) & (
+                    df_pred[pred_lag_year_col] == LagYr - 1), 'Predicted_Inflated_cumsum']) == 0:
+                PrevCum = df_check.loc[(py_data[start_year_col] == InsurYr) & (
+                        df_check[lag_year_col] == LagYr - 1), inflated_cum_amt_col_check].values[0]
             # For which we can look up in Predicted_df
             else:
-                PrevCum = Predicted_df.loc[(Predicted_df['InsuredYear'] == InsurYr) & (
-                        Predicted_df['PredictedYear_Only_Lag'] == LagYr - 1), 'Predicted_Inflated_cumsum'].values[0]
+                PrevCum = df_pred.loc[(df_pred[start_year_col] == InsurYr) & (
+                        df_pred[pred_lag_year_col] == LagYr - 1), 'Predicted_Inflated_cumsum'].values[0]
 
-            Predicted_df.loc[row, 'Predicted_Inflated_Incremental'] = (CurrCum - PrevCum)
+            df_pred.loc[row, 'Predicted_Inflated_Incremental'] = (CurrCum - PrevCum)
 
-        Predicted_df[['Predicted_Inflated_Incremental']] = Predicted_df[['Predicted_Inflated_Incremental']].astype(
-            float)
-        PredictedInflatedIncrementalTriangle = pd.pivot_table(Predicted_df, index=["InsuredYear"],
-                                                              columns=["PredictedYear_Only_Lag"],
-                                                              values=["Predicted_Inflated_Incremental"])
+        df_pred[['Predicted_Inflated_Incremental']] = df_pred[['Predicted_Inflated_Incremental']].astype(float)
+
+        return df_pred
 
     @staticmethod
     def uplift_future_inflation():
@@ -379,6 +386,13 @@ ClaimsDataInflated = IACL.uplift_past_inflation(start_year=py_data['Insured_Year
                                                 year_end_cap=2017,
                                                 inflation_year=Inflation_df['Year'],
                                                 inflation_rate=Inflation_df['CumPastInflation'])
+
+"""Individual Loss Development Factors"""
+ClaimsDataInflated = IACL.individual_loss_development_factors(data_frame=ClaimsDataInflated,
+                                                              year_end_cap=2017,
+                                                              start_year_col='Insured_Year',
+                                                              lag_year_col='Year_Only_Lag',
+                                                              inflated_cum_amt_col='Inflated_cumsum')
 
 """Prepare Future Claims data frame"""
 FutureClaimsData = IACL.future_claims_data_df(data_frame=ClaimsDataInflated,
@@ -397,7 +411,15 @@ LDF_averages = IACL.select_loss_development_factors(data_frame=LDF_averages,
                                                     selected='Inflated_VolWtdLossDF')
 
 """Predict Future Claims; apply LDFs"""
-
+df_pred = IACL.predict_claims(data_frame_pred=FutureClaimsData, data_frame_check_ref=ClaimsDataInflated,
+                              data_frame_ldf=LDF_averages,
+                   pred_lag_year_col='PredictedYear_Only_Lag', lag_year_col='Year_Only_Lag',
+                   start_year_col='Insured_Year', selected_ldf_col='Inflated_SelectLossDF',
+                   inflated_cum_amt_col='Previous_Inflated_cumsum', inflated_cum_amt_col_check='Inflated_cumsum',
+                   year_end_cap=2017)
+PredictedInflatedIncrementalTriangle = pd.pivot_table(df_pred, index=["InsuredYear"],
+                                                              columns=["PredictedYear_Only_Lag"],
+                                                              values=["Predicted_Inflated_Incremental"])
 
 """Apply future inflation rates"""
 
