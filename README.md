@@ -230,10 +230,9 @@ or
 
 ![ScreenShot](/Pictures/ClaimsSimu_article_1.png)
 
-<br>Present: Simulation supports Claim Numbers (Poisson) & Amounts (Gaussian).
+<br>Present: Simulation supports Claim Numbers (Poisson, Negative Bin) & Amounts (Gaussian, LogNormal).
 <br>Ongoing: 
-<br>1. Claim Numbers (Negative Binomial) & Amounts (Lognormal).
-<br>2. Support Bornhuetter-Ferguson Method (BF).
+<br>1. Support Bornhuetter-Ferguson Method (BF).
 
 <br>Contents:
 <ol>0. Assumptions</ol>
