@@ -7,6 +7,7 @@ import datetime
 import random
 import operator
 # Visualizations
+import matplotlib.pyplot as plt
 
 
 class DataRange:
@@ -234,18 +235,16 @@ class IACL:
             lag = predicted_df.loc[row, 'PredictedYear_Only_Lag']
             pred_yr = base + lag
             if base == year_end_cap:
-                prev_inflated_cum_sum = py_data.loc[(py_data['Insured_Year'] == base), 'Inflated_cumsum'].values[0]
+                prev_inflated_cum_sum = df.loc[(df['Insured_Year'] == base), 'Inflated_cumsum'].values[0]
             else:
-                if pred_yr > year_end_cap or len(py_data.loc[(py_data['Insured_Year'] == base) & (
-                        py_data['Year_Only_Lag'] == lag - 1), 'Inflated_cumsum']) == 0:
-                    max_lag = py_data.loc[(py_data['Insured_Year'] == base), 'Year_Only_Lag'].max()
-                    prev_inflated_cum_sum = py_data.loc[
-                        (py_data['Insured_Year'] == base) & (
-                                py_data['Year_Only_Lag'] == max_lag), 'Inflated_cumsum'].values[
-                        0]
+                if pred_yr > year_end_cap or len(df.loc[(df['Insured_Year'] == base) & (
+                        df['Year_Only_Lag'] == lag - 1), 'Inflated_cumsum']) == 0:
+                    max_lag = df.loc[(df['Insured_Year'] == base), 'Year_Only_Lag'].max()
+                    prev_inflated_cum_sum = df.loc[(df['Insured_Year'] == base) &
+                                                   (df['Year_Only_Lag'] == max_lag), 'Inflated_cumsum'].values[0]
                 else:
-                    prev_inflated_cum_sum = py_data.loc[(py_data['Insured_Year'] == base) & (
-                            py_data['Year_Only_Lag'] == lag - 1), 'Inflated_cumsum'].values[0]
+                    prev_inflated_cum_sum = df.loc[(df['Insured_Year'] == base) &
+                                                   (df['Year_Only_Lag'] == lag - 1), 'Inflated_cumsum'].values[0]
             predicted_df.loc[row, 'Previous_Inflated_cumsum'] = prev_inflated_cum_sum
         return predicted_df
 
@@ -413,10 +412,10 @@ LDF_averages = IACL.select_loss_development_factors(data_frame=LDF_averages,
 """Predict Future Claims; apply LDFs"""
 df_pred = IACL.predict_claims(data_frame_pred=FutureClaimsData, data_frame_check_ref=ClaimsDataInflated,
                               data_frame_ldf=LDF_averages,
-                   pred_lag_year_col='PredictedYear_Only_Lag', lag_year_col='Year_Only_Lag',
-                   start_year_col='Insured_Year', selected_ldf_col='Inflated_SelectLossDF',
-                   inflated_cum_amt_col='Previous_Inflated_cumsum', inflated_cum_amt_col_check='Inflated_cumsum',
-                   year_end_cap=2017)
+                              pred_lag_year_col='PredictedYear_Only_Lag', lag_year_col='Year_Only_Lag',
+                              start_year_col='Insured_Year', selected_ldf_col='Inflated_SelectLossDF',
+                              inflated_cum_amt_col='Previous_Inflated_cumsum', inflated_cum_amt_col_check='Inflated_cumsum',
+                              year_end_cap=2017)
 PredictedInflatedIncrementalTriangle = pd.pivot_table(df_pred, index=["InsuredYear"],
                                                               columns=["PredictedYear_Only_Lag"],
                                                               values=["Predicted_Inflated_Incremental"])

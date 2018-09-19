@@ -223,9 +223,9 @@ Reserving Method Used: Inflation Adjusted Chain Ladder
 ## Claims Simulation 
 [Article](https://medium.com/@DRicky.Ch29/inflation-adjusted-chain-ladder-iacl-with-only-python-pandas-module-512914d9a1d)
 or
-[Python Code v2](https://github.com/DeDeDeDer/Personal_Projects/blob/master/Claims%20Simulation%20(Insurance%20Reserving)/Claims_Simulator.py)
+[Python Code Guide](https://www.kaggle.com/derrickchua29/simulating-claim-data-iacl-calculation)
 or
-[Python Code v1](https://github.com/DeDeDeDer/Personal_Projects/blob/master/Claims%20Simulation%20(Insurance%20Reserving)/compute_claims.py)
+[Python Code v2](https://github.com/DeDeDeDer/Personal_Projects/blob/master/Claims%20Simulation%20(Insurance%20Reserving)/Claims_Simulator.py)
 <br>
 
 ![ScreenShot](/Pictures/ClaimsSimu_article_1.png)

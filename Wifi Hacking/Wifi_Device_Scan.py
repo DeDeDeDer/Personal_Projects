@@ -7,7 +7,7 @@ import nmap
 
 """How to run code"""
 # Using cmd terminal type either:
-# sudo python3 Wifi_Dev_Scan.py - requires manual local user PW user input
+# sudo python3 Wifi_Dev_Scan.py - requires manual local user PassWord user input
 
 
 """Pending Modifications"""
