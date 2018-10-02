@@ -100,7 +100,7 @@ class DataRange:
 
 """Data Range"""
 PolicyNumbers = 10
-Range = DataRange(PolicyNumbers, 2010, 2017)
+Range = DataRange(PolicyNumbers, year_start=2010, year_end=2017)
 
 """Claim Numbers"""
 ClaimNo = Range.output_poisson_claims_no(lambda_param=1)
@@ -171,6 +171,9 @@ class IACL:
                     to_year_perc = Inflation_df.loc[Inflation_df['Year'] == year_end_cap, 'CumPastInflation'].values[0]
                     uplift = to_year_perc / current_year_perc
                     tempo_df['Inflated_Claims_Amount'][row] = tempo_df['Inflated_Claims_Amount'][row] * uplift
+                elif year_end_cap == insured_year:
+                    """NEW ~CONTROL~ CODE FOR BASE INFLATION YEAR FORMULA TO BE ADDED"""
+                    tempo_df['Inflated_Claims_Amount'][row] = tempo_df['Inflated_Claims_Amount'][row]
                 else:
                     tempo_df['Inflated_Claims_Amount'][row] = tempo_df['Inflated_Claims_Amount'][row]
                 tempo_df['Inflated_cumsum'] = tempo_df['Inflated_Claims_Amount'].groupby(tempo_df['Insured_Year']).cumsum()
@@ -374,8 +377,18 @@ class IACL:
         return df_pred
 
     @staticmethod
-    def uplift_future_inflation():
-        pass
+    def uplift_future_inflation(data_frame, lag_year_col, start_year_col, year_end_cap, inflation_df, inflated_incr_amt_col, inflation_year, inflation_rate):
+        Predicted_df = data_frame
+        Inflation_df = inflation_df
+        """Define proceeding inflation year from year_end_cap"""
+        FutureInflation = Inflation_df.loc[(Inflation_df[inflation_year] == (year_end_cap + 1)), inflation_rate].values[0]
+        for row in range(0, len(Predicted_df)):
+            InsurYr = Predicted_df.loc[row, start_year_col]
+            LagYr = Predicted_df.loc[row, lag_year_col]
+            CurrIncremAmt = Predicted_df.loc[row, inflated_incr_amt_col]
+            Predicted_df['FutureUplifted_Predicted_Inflated_Incremental'] = 1
+            Predicted_df.loc[row, 'FutureUplifted_Predicted_Inflated_Incremental'] = CurrIncremAmt * (FutureInflation ** LagYr)
+        return Predicted_df
 
 
 """Inflation Calculations"""
@@ -414,13 +427,19 @@ df_pred = IACL.predict_claims(data_frame_pred=FutureClaimsData, data_frame_check
                               data_frame_ldf=LDF_averages,
                               pred_lag_year_col='PredictedYear_Only_Lag', lag_year_col='Year_Only_Lag',
                               start_year_col='Insured_Year', selected_ldf_col='Inflated_SelectLossDF',
-                              inflated_cum_amt_col='Previous_Inflated_cumsum', inflated_cum_amt_col_check='Inflated_cumsum',
+                              inflated_cum_amt_col='Previous_Inflated_cumsum',
+                              inflated_cum_amt_col_check='Inflated_cumsum',
                               year_end_cap=2017)
 PredictedInflatedIncrementalTriangle = pd.pivot_table(df_pred, index=["InsuredYear"],
-                                                              columns=["PredictedYear_Only_Lag"],
-                                                              values=["Predicted_Inflated_Incremental"])
+                                                      columns=["PredictedYear_Only_Lag"],
+                                                      values=["Predicted_Inflated_Incremental"])
 
 """Apply future inflation rates"""
+IACL.uplift_future_inflation(data_frame=df_pred, lag_year_col='PredictedYear_Only_Lag', start_year_col="InsuredYear",
+                             year_end_cap=2017,
+                             inflation_df=Inflation_df,
+                             inflated_incr_amt_col=["Predicted_Inflated_Incremental"],
+                             inflation_year=Inflation_df['Year'], inflation_rate=Inflation_df['CumPastInflation'])
 
 
 def SubPlotFullClaims(PastDataFrameName, PastInsuredYearColumn, PastLagYearColumn, PastValueColumn,
