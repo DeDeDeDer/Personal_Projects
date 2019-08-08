@@ -2,6 +2,17 @@
 This GitHub holds all my personal project's that I have worked on as a past time. 
 Project's are mainly focused on Data Science, Insurance Pricing & Reserving fields.
 <br>A mapping of these are laid out below.
+
+# Mapping
+| Scraped Data Analysis | Articles | Simulators & Kernels |
+| ------ | ------ | ------ |
+| <a href="https://medium.com/@DRicky.Ch29/geo-visualisation-singapore-housing-sales-market-python-web-scraping-c58525e9eaa">Geo-Visual SG Housing Prices</a> <br /> ![ScreenShot](images/Geo_Property.png) | <a href="https://medium.com/@DRicky.Ch29/at-its-simplest-predictive-modelling-b3c0c0b0716d">Predictive Modelling</a> <br /> ![ScreenShot](images/MindM_Modelling.png)| <a href="https://medium.com/@DRicky.Ch29/inflation-adjusted-chain-ladder-iacl-with-only-python-pandas-module-512914d9a1d">Claims Simulator</a> <br /> ![ScreenShot](images/Line_ClaimSim.png)
+| <a href="https://medium.com/@DRicky.Ch29/geo-visualisation-singapore-housing-sales-market-python-web-scraping-c58525e9eaa">Box-Plot SG Housing Prices</a> <br /> ![ScreenShot](images/Box_Property.png) | <a href="https://medium.com/@DRicky.Ch29/web-scraping-pdf-tables-data-cleaning-part-1-cb6d8d47a6de">Web-Scraping Workflow</a> <br /> ![ScreenShot](images/Flow_Scrape.png)| <a href="https://medium.com/@DRicky.Ch29/machine-learning-algorithms-on-forex-high-level-test-bd71c90aee95">FOREX & ML Algorithms</a> <br /> ![](images/Bubb_MLA_2.gif)
+| <a href="https://medium.com/@DRicky.Ch29/visualising-14yrs-of-general-insurance-data-python-web-scraping-part-3-12e89a8c8249">Private Insurance 14-Years</a> <br /> ![](images/Bubb_PteInsur.gif) |  <a href="https://medium.com/@DRicky.Ch29/machine-learning-algorithms-on-forex-high-level-test-bd71c90aee95">FOREX ML Algorithms Workflow</a> <br />![ScreenShot](images/Flow_MLA.png) | <a href="">Pending Stock Screener</a> <br />
+| <a href="https://medium.com/@DRicky.Ch29/visualising-14yrs-of-general-insurance-data-python-web-scraping-part-3-12e89a8c8249">Public Insurance 14-Years</a> <br /> ![](images/Bubb_PubInsur.gif) |  <br /> | <br />
+
+
+# For more info..
 ![ScreenShot](/Pictures/MapBackground_4.png)
 <br>
 <br>
