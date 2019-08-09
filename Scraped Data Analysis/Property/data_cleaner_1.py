@@ -9,7 +9,7 @@ from geopy.geocoders import Nominatim
 import ssl
 
 
-"""Functions"""
+"""Cleaning Functions"""
 def converge_all():
     all_area_codes = list(range(1, 27, 1))
     df2 = pd.DataFrame()
