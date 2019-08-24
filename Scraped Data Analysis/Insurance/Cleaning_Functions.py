@@ -7,13 +7,22 @@ import numpy as np
 # Create Sub-Folder
 import pathlib2
 # Read PDF
+from tabula import wrapper
 from tabula import read_pdf
 # Visual Settings
 pd.set_option("display.max_columns", 30)
 
 
 """Set 2"""
-
+def create_dummy_cols_list(count):
+    items = []
+    list1 = ['col_'] * count
+    list2 = list(range(0, count))
+    list2 = [str(i) for i in list2]
+    for i in range(0, len(list1)):
+        item = list1[i] + list2[i]
+        items.append(item)
+    return items
 
 def clean_1_split_data(g):
     # Split Data
@@ -30,24 +39,10 @@ def clean_1_split_data(g):
                  'Fire', 'Motor', 'Work Injury Compensation', 'Personal Accident', 'Health',
                  'Misc - Public Liability', 'Misc - Bonds', 'Misc - Engineering / CAR / EAR',
                  'Misc - Professional Indemnity', 'Misc - Credit / Political Risk', 'Misc - Others', 'Misc - Sub-Total',
-                 'Total',
-                 "Col_0", "Col_1", "Col_2", "Col_3", "Col_4", "Col_5", "Col_6", "Col_7", "Col_8", "Col_9", "Col_10",
-                 "Col_11", "Col_12", "Col_13", "Col_14", "Col_15", "Col_16", "Col_17", "Col_18", "Col_19", "Col_20",
-                 "Col_21", "Col_22", "Col_23", "Col_24", "Col_25", "Col_26", "Col_27", "Col_28", "Col_29", "Col_30",
-                 "Col_31", "Col_32", "Col_33", "Col_34", "Col_35", "Col_36", "Col_37", "Col_38", "Col_39", "Col_40",
-                 "Col_41", "Col_42", "Col_43", "Col_44", "Col_45", "Col_46", "Col_47", "Col_48", "Col_49", "Col_50",
-                 "Col_51", "Col_52", "Col_53", "Col_54", "Col_55", "Col_56", "Col_57", "Col_58", "Col_59", "Col_60",
-                 "Col_61", "Col_62", "Col_63", "Col_64", "Col_65", "Col_66", "Col_67", "Col_68", "Col_69", "Col_70",
-                 "Col_71", "Col_72", "Col_73", "Col_74", "Col_75", "Col_76", "Col_77", "Col_78", "Col_79", "Col_80"
+                 'Total']
+    dummy_cols = create_dummy_cols_list(count=80)
+    new_colll = new_colll + dummy_cols
 
-                 ]
-
-    dummy_cols = ["Col_0", "Col_1", "Col_2", "Col_3", "Col_4", "Col_5", "Col_6", "Col_7", "Col_8", "Col_9", "Col_10",
-                  "Col_11", "Col_12", "Col_13", "Col_14", "Col_15", "Col_16", "Col_17", "Col_18", "Col_19", "Col_20",
-                  "Col_21", "Col_22", "Col_23", "Col_24", "Col_25", "Col_26", "Col_27", "Col_28", "Col_29", "Col_30",
-                  "Col_31", "Col_32", "Col_33", "Col_34", "Col_35", "Col_36", "Col_37", "Col_38", "Col_39", "Col_40",
-                  "Col_41", "Col_42", "Col_43", "Col_44", "Col_45", "Col_46", "Col_47", "Col_48", "Col_49", "Col_50",
-                  "Col_51", "Col_52", "Col_53", "Col_54", "Col_55", "Col_56", "Col_57", "Col_58", "Col_59", "Col_60"]
     g.columns = new_colll[0:len(g.columns)]
     #g.columns = dummy_cols[0:len(g.columns)]
     g.applymap(str)
